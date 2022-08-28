@@ -181,9 +181,9 @@ void FusionLayer::onInitialize(){
     ROS_INFO("fusion_layers in DEBUG mode!!");
 #endif
 
-    ros::NodeHandle ped_nh("fusion_data");
-    pedestrian_sub_ = ped_nh.subscribe<std_msgs::String>("/chatter7" ,1000, dataSplit);
-    ROS_INFO("fusion_data nodehandle");
+    ros::NodeHandle ped_nh("fusion_layer");
+    pedestrian_sub_ = ped_nh.subscribe<std_msgs::String>("/face2face_point" ,1000, dataSplit);
+    ROS_INFO("fusion_layer nodehandle");
     ros::NodeHandle nh("~/" + name_);
     current_ = true;
     dsrv_ = new dynamic_reconfigure::Server<costmap_2d::GenericPluginConfig>(nh);
